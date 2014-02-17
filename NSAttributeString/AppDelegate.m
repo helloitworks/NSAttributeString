@@ -19,7 +19,7 @@ static const CGFloat kSpeedFontSize = 22.f;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    //--------method 1: draw attributeString s
+    //--------example 1: draw attributeString s
     //display the attributeString “Hello It Works”，and want the letters 0 through 4 to be underlined,the letters 0 through 7 to be green, and the letters 9 through 13 to be supperscript
     NSMutableAttributedString *s;
     s = [[NSMutableAttributedString alloc] initWithString:@"Hello It Works"];
@@ -36,7 +36,7 @@ static const CGFloat kSpeedFontSize = 22.f;
     
     
     
-    //--------method 2:draw attributeString speed at the center
+    //--------example 2:draw attributeString speed at the center
     NSMutableAttributedString *speed = [[[NSMutableAttributedString alloc] initWithString: @"512K/s"] autorelease];
     NSRange range = NSMakeRange(0, [speed length]);
     
@@ -59,7 +59,7 @@ static const CGFloat kSpeedFontSize = 22.f;
      */
     [speed drawInRect:[self.window.contentView bounds]];
     
-    //--------method 3:draw string title vertically center
+    //--------example 3:draw string title vertically center
     NSString *title = @"This is a vertically center string title";
     NSDictionary* sTitleAttribute = [[NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:kSpeedFontName size:kSpeedFontSize],NSFontAttributeName, nil] retain];
     NSSize titleSize = [title sizeWithAttributes:sTitleAttribute];
@@ -70,7 +70,7 @@ static const CGFloat kSpeedFontSize = 22.f;
 
 }
 
-
+//给出一个要绘制的区域大小，跟目标区域的大小，计算出在目标区域哪个点绘制才能让要绘制的区域垂直居中。
 +(NSPoint)calcOriginalForCenterDraw:(NSSize)drawSize destSize:(NSSize)destSize
 {
     NSPoint point = NSZeroPoint;
